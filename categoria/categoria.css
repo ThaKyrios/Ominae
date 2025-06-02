@@ -1,0 +1,134 @@
+/* categoria/categoria.css */
+
+/* Stili specifici per il layout delle pagine di categoria */
+
+.category-hero {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://via.placeholder.com/1500x300/1e1e2d/eaeaea?text=Categoria') no-repeat center center/cover;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+}
+
+.category-hero h1 {
+    font-family: var(--font-title);
+    font-size: 4rem;
+    color: var(--accent-color);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+}
+
+.article-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 247, 255, 0.3);
+}
+
+.article-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid var(--secondary-color);
+}
+
+.article-card-content {
+    padding: 1.5rem;
+}
+
+.article-card h3 {
+    font-family: var(--font-title);
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.8rem;
+}
+
+.article-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #c0c0c0;
+    margin-bottom: 1rem;
+}
+
+.article-card .read-more {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: #000;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.article-card .read-more:hover {
+    background-color: #00e0e0;
+}
+
+/* NUOVO: Stili per il pulsante "Torna alla Home" nelle pagine di categoria */
+.back-to-home-section {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px dashed #333;
+}
+
+.back-button {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: #fff;
+    padding: 0.9rem 1.8rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.back-button:hover {
+    background-color: var(--accent-color);
+    color: #000;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 247, 255, 0.4);
+}
+
+
+@media (max-width: 768px) {
+    .category-hero h1 {
+        font-size: 3rem;
+    }
+    .articles-grid {
+        grid-template-columns: 1fr;
+    }
+    /* Media query per il pulsante */
+    .back-button {
+        width: 90%; /* Occupa quasi tutta la larghezza su mobile */
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .category-hero h1 {
+        font-size: 2.5rem;
+    }
+}

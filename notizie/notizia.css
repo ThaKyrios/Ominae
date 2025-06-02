@@ -1,0 +1,226 @@
+/* notizie/notizia.css - Versione Definitiva e Ottimizzata per la Grandezza del Logo */
+
+/*
+   Questo foglio di stile è specificamente per le pagine delle notizie.
+   Si integra perfettamente con style.css.
+   Le regole per l'HEADER e la NAVIGAZIONE sono delegate principalmente a style.css
+   per garantire coerenza universale.
+   Qui definiamo solo override MINIMI o stili specifici per il contenuto dell'articolo.
+*/
+
+/* --- OVERRIDE MINIMO PER L'HEADER: Grandezza del Logo --- */
+
+/* Applica la modifica alla dimensione del logo SOLO per le pagine che caricano notizia.css.
+   Il resto dell'header (sfondo, ombre, altezza della barra di navigazione, layout dei link,
+   comportamento del menu hamburger) è gestito da style.css. */
+header .logo img {
+    height: 330px; /* <<<<<<<<< MODIFICA QUI PER CAMBIARE L'ALTEZZA DEL LOGO >>>>>>>>> */
+    width: auto; /* Mantiene le proporzioni originali dell'immagine. */
+}
+
+/* --- SEZIONE HERO DELLA NOTIZIA (Titolo specifico della notizia) --- */
+
+.category-hero {
+    background: var(--background-color); /* Sfondo da style.css */
+    padding: 80px 5%;
+    text-align: center;
+    color: var(--text-color); /* Colore del testo da style.css */
+    box-shadow: 0 2px 10px var(--box-shadow-dark); /* Ombra da style.css */
+    margin-bottom: 30px;
+}
+
+.category-hero h1 {
+    font-size: 3rem;
+    background: var(--primary-color); /* Gradiente neon da style.css */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: var(--primary-color-fallback); /* Fallback da style.css */
+    margin-bottom: 0;
+    font-family: 'Orbitron', sans-serif; /* Font specifico per i titoli da style.css */
+    font-weight: 700;
+}
+
+/* --- CONTENUTO DELL'ARTICOLO (IL "RIQUADRO" E TESTO) --- */
+
+/* Contenitore principale dell'articolo (il "riquadro" con effetti neon) */
+.article-container {
+    max-width: 950px;
+    margin: 3.5rem auto;
+    padding: 3rem;
+    background-color: var(--card-background); /* Sfondo card da style.css */
+    border-radius: 18px;
+    /* Ombre e bordi neon specifici per il riquadro della notizia */
+    box-shadow: 0 0 40px rgba(0, 247, 255, 0.4), 0 0 20px rgba(139, 92, 246, 0.3);
+    border: 2px solid var(--secondary-color); /* Bordo con colore da style.css */
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.article-container::before {
+    content: '';
+    position: absolute;
+    top: -5px; left: -5px; right: -5px; bottom: -5px;
+    background: linear-gradient(45deg, #00f7ff, #8b5cf6, #ff0077, #00f7ff); /* Gradiente neon specifico */
+    background-size: 400% 400%;
+    border-radius: 20px;
+    z-index: -1;
+    animation: gradientShift 10s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Stile dell'immagine principale all'interno dell'articolo */
+.article-image {
+    width: 100%;
+    max-width: 800px;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin: 2.5rem auto;
+    display: block;
+    box-shadow: 0 8px 25px var(--box-shadow-dark); /* Ombra da style.css */
+    border: 2px solid var(--border-color); /* Bordo da style.css */
+}
+
+/* Stile del contenuto testuale dell'articolo */
+.article-content {
+    font-family: 'Roboto', sans-serif; /* Font per il corpo del testo da style.css */
+    color: var(--text-color); /* Colore del testo standard da style.css */
+    line-height: 1.8;
+    font-size: 1.05rem;
+    margin-top: 2rem;
+}
+
+.article-content h1,
+.article-content h2,
+.article-content h3,
+.article-content h4,
+.article-content h5,
+.article-content h6 {
+    /* Titoli interni all'articolo: colore solido coerente */
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+    background-clip: unset;
+    color: var(--primary-color-fallback); /* Colore solido da style.css */
+    font-family: 'Orbitron', sans-serif; /* Font per i titoli da style.css */
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.article-content h1 { font-size: 2.8rem; text-align: center; margin-bottom: 1.5rem; }
+.article-content h2 { font-size: 2.2rem; }
+.article-content h3 { font-size: 1.7rem; }
+
+.article-content p {
+    margin-bottom: 1.5rem;
+}
+
+.article-content ul,
+.article-content ol {
+    margin-bottom: 1.5rem;
+    margin-left: 25px;
+}
+
+.article-content li {
+    margin-bottom: 0.5rem;
+}
+
+/* --- SEZIONE "TORNA ALLA CATEGORIA" --- */
+
+.back-to-category-section {
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 30px;
+}
+
+.back-button {
+    display: inline-block;
+    background: var(--primary-color); /* Gradiente da style.css */
+    color: var(--background-color); /* Testo scuro sul pulsante da style.css */
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: none;
+    font-size: 1.1rem;
+}
+
+.back-button:hover {
+    background: linear-gradient(to right, #3a0063, #6f22b7, #b01030); /* Gradiente specifico all'hover */
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px var(--box-shadow-dark); /* Ombra da style.css */
+    color: white;
+}
+
+/* --- MEDIA QUERIES (RESPONSIVITÀ) --- */
+
+/* Regole per schermi medi */
+@media (max-width: 1024px) {
+    .article-container {
+        margin: 2.5rem auto;
+        padding: 2.5rem;
+    }
+    .article-image {
+        height: 400px;
+    }
+}
+
+/* Regole per schermi piccoli (tablet in portrait, smartphone) */
+@media (max-width: 768px) {
+    /* Modifica l'altezza del logo su mobile se necessario.
+       Il resto del comportamento della nav mobile è gestito da style.css. */
+    header .logo img {
+        height: 40px; /* <<<<<<<<< MODIFICA QUI PER CAMBIARE L'ALTEZZA DEL LOGO SU MOBILE >>>>>>>>> */
+    }
+
+    /* Adattamenti del contenuto su Mobile */
+    .category-hero h1 { font-size: 2.5rem; }
+    .article-container {
+        margin: 1.5rem;
+        padding: 1.5rem;
+        border-radius: 12px;
+    }
+    .article-image {
+        height: 280px;
+        margin: 1.5rem auto;
+    }
+    .article-content {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+    .article-content h1 { font-size: 2.2rem; }
+    .article-content h2 { font-size: 1.8rem; }
+    .article-content h3 { font-size: 1.4rem; }
+
+    .back-button {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+/* Regole per schermi molto piccoli */
+@media (max-width: 480px) {
+    .category-hero h1 { font-size: 2rem; }
+    .article-container {
+        padding: 1rem;
+        margin: 1rem;
+    }
+    .article-image {
+        height: 200px;
+    }
+    .article-content h1 { font-size: 1.8rem; }
+    .article-content h2 { font-size: 1.5rem; }
+    .article-content h3 { font-size: 1.2rem; }
+}
